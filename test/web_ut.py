@@ -41,8 +41,7 @@ class ISelenium(unittest.TestCase):
             chrome_options.add_argument('--disable-dev-shm-usage')
             #driver = webdriver.Chrome('/path/to/your_chrome_driver_dir/chromedriver',chrome_options=chrome_options)
 
-        self.driver = webdriver.Chrome(config.get('driver', 'chrome_driver'),
-                                       options=chrome_options)
+        self.driver = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
 
     @allure.story('Test key word 今日头条')
     def test_webui_1(self):
