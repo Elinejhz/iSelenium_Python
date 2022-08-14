@@ -8,6 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 #from selenium.webdriver.firefox.options import Options
 from selenium.webdriver import FirefoxOptions
+from selenium.webdriver.common.by import By
 
 
 @allure.feature('Test Baidu WebUI')
@@ -71,7 +72,7 @@ class ISelenium(unittest.TestCase):
         time.sleep(5)
         assert f'百度一下' in self.driver.title
 
-        elem = self.driver.find_element_by_name("wd")
+        elem = self.driver.find_element(By.name,"wd")
         elem.send_keys(f'{search_keyword}{Keys.RETURN}')
         print(f'搜索关键词~{search_keyword}')
         time.sleep(5)
