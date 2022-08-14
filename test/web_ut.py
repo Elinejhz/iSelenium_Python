@@ -6,7 +6,8 @@ import unittest
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.options import Options
+#from selenium.webdriver.firefox.options import Options
+from selenium.webdriver import FirefoxOptions
 
 
 @allure.feature('Test Baidu WebUI')
@@ -33,7 +34,8 @@ class ISelenium(unittest.TestCase):
             using_headless = None
             print('没有配置环境变量 using_headless, 按照有界面方式运行自动化测试')
 
-        firefox_options = Options()
+        firefox_options = FirefoxOptions()
+        #firefox_options = Options()
         if using_headless is not None and using_headless.lower() == 'true':
             print('使用无界面方式运行')
             firefox_options.add_argument("--headless")
