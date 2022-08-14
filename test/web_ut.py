@@ -33,7 +33,7 @@ class ISelenium(unittest.TestCase):
             using_headless = None
             print('没有配置环境变量 using_headless, 按照有界面方式运行自动化测试')
 
-        chrome_options = Options()
+        chrome_options = webdriver.ChromeOptions()
         if using_headless is not None and using_headless.lower() == 'true':
             print('使用无界面方式运行')
             chrome_options.add_argument("--headless")
