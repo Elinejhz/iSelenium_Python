@@ -6,7 +6,7 @@ import unittest
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 
 
 @allure.feature('Test Baidu WebUI')
@@ -33,15 +33,15 @@ class ISelenium(unittest.TestCase):
             using_headless = None
             print('没有配置环境变量 using_headless, 按照有界面方式运行自动化测试')
 
-        chrome_options = Options()
+        firefox_options = Options()
         if using_headless is not None and using_headless.lower() == 'true':
             print('使用无界面方式运行')
-            chrome_options.add_argument("--headless")
+            firefox_options.add_argument("--headless")
             #chrome_options.add_argument('--no-sandbox')
             #chrome_options.add_argument('--disable-dev-shm-usage')
             #driver = webdriver.Chrome('/path/to/your_chrome_driver_dir/chromedriver',chrome_options=chrome_options)
 
-        self.driver = webdriver.Chrome(options=chrome_options)
+        self.driver = webdriver.Firefox(executable_path=config.get('driver', 'firefox_driver'), options=firefox_options)
 
     @allure.story('Test key word 今日头条')
     def test_webui_1(self):
