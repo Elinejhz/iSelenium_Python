@@ -42,7 +42,7 @@ class ISelenium(unittest.TestCase):
             #driver = webdriver.Chrome('/path/to/your_chrome_driver_dir/chromedriver',chrome_options=chrome_options)
 
         self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
-                                       chrome_options=chrome_options)
+                                       options=chrome_options)
 
     @allure.story('Test key word 今日头条')
     def test_webui_1(self):
