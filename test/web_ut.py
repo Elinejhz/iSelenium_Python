@@ -37,9 +37,12 @@ class ISelenium(unittest.TestCase):
         if using_headless is not None and using_headless.lower() == 'true':
             print('使用无界面方式运行')
             chrome_options.add_argument("--headless")
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-dev-shm-usage')
+            #driver = webdriver.Chrome('/path/to/your_chrome_driver_dir/chromedriver',chrome_options=chrome_options)
 
         self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
-                                       options=chrome_options)
+                                       chrome_options=chrome_options)
 
     @allure.story('Test key word 今日头条')
     def test_webui_1(self):
